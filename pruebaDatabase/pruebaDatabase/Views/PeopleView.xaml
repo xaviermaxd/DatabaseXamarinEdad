@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pruebaDatabase.Views.PeopleView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="First Name" />
+            <Entry Text="{Binding FirstName}"></Entry>
+            <Label Text="Last Name" />
+            <Entry Text="{Binding LastName}"></Entry>
+            <Label Text="Edad" />
+            <Entry Text="{Binding Edad}"></Entry>
+            <Button Text="Save" Command="{Binding InsertCommand}"></Button>
+
+            <Entry Placeholder="Filter" Text="{Binding Filter}" HorizontalOptions="FillAndExpand"></Entry>
+            <Button Text="ShowByText" Command="{Binding SearchCommand}"></Button>
+            <ListView x:Name="LvPeople" ItemsSource="{Binding People}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding FirstName}"></Label>
+                                <Label Text="{Binding LastName}"></Label>
+                                <Label Text="{Binding Edad}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Sumar Edades" Command="{Binding Sumar}"></Button>
+            <Label Text="Suma total de edades"></Label>
+            <Label Text="{Binding SumaEdad}"></Label>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
